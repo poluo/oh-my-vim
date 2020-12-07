@@ -30,7 +30,6 @@ Plugin 'raimondi/delimitmate'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'chiel92/vim-autoformat'
-Plugin 'SirVer/ultisnips'
 Plugin 'klen/python-mode'
 
 " Plugin 'scrooloose/syntastic'
@@ -67,11 +66,11 @@ filetype plugin indent on    " required
 syntax on
 " list number at the left side
 set number
-" let mouse rock and roll
-set mouse=a
+" let mouse rock and roll set mouse=a
+set mouse=c
 " highlight current-selected line
-set cursorline
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkgreen guifg=white
+" set cursorline
+" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkgreen guifg=white
 " highlight key words to be searched
 set hlsearch
 " highlight instantly
@@ -115,13 +114,15 @@ map <silent> <F4> :!ctags -R<CR>    " press F4 to re-build ctags
 if filereadable("cscope.out")
   cs add cscope.out
 endif
+nmap fc :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap fe :cs find e <C-R>=expand("<cword>")<CR><CR>
 " ========================================================================== "
 
 
 " ===============================NERDTree==================================== "
-autocmd VimEnter * NERDTree       " 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）
+" autocmd VimEnter * NERDTree       " 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）
 " fix E121: Undefined variable: g:NERDTreeDirArrowCollapsible Error
-let g:NERDTreeDirArrows           = 1
+let g:NERDTreeDirArrows           = 0
 let g:NERDTreeDirArrowExpandable  = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeGlyphReadOnly       = 1
@@ -135,7 +136,7 @@ map <silent> <F2> :NERDTreeToggle<cr> " 按下 F2 调出/隐藏 NERDTree
 
 " ===============================NERDTreeTab==================================== "
 let NERDTreeShowHidden                      = 1                    " shift +i to toggle
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 0
 let g:nerdtree_tabs_no_startup_for_diff     = 0
 map <silent> <F3> :NERDTreeTabsToggle<CR>
 " ========================================================================== "
