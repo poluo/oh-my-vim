@@ -88,10 +88,6 @@ let mapleader=","
 " turn off search highlight, instead of `:nohlsearch`
 nnoremap <leader><space> :nohlsearch<CR>
 " 80th-column if you write code
-if (exists('+colorcolumn'))
-  set colorcolumn=80
-  highlight ColorColumn ctermbg=9
-endif
 " ========================================================================== "
 
 
@@ -100,12 +96,12 @@ autocmd VimEnter * nested :TagbarOpen  " 启动vim时自动打开tagbar
 set updatetime=200 " 根据光标位置自动更新高亮tag的间隔时间，单位为毫秒
 autocmd VimEnter * nested :call tagbar#autoopen(1) " 若文件类型支持，则自动打开tagbar
 autocmd BufEnter * nested :call tagbar#autoopen(0) " 打开新标签时，自动打开tagbar
-nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 " ========================================================================== "
 
 " ===============================ctags==================================== "
 " do `ctags -R *` to generate `tags`
-map <silent> <F4> :!ctags -R<CR>    " press F4 to re-build ctags
+map <silent> <F4> :!ctags -R && cscope -Rbkq<CR>    " press F4 to re-build ctags
 " ========================================================================== "
 
 
@@ -116,6 +112,7 @@ if filereadable("cscope.out")
 endif
 nmap fc :cs find c <C-R>=expand("<cword>")<CR><CR>
 nmap fe :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <F8> :/<C-R>=expand("<cword>")<CR><CR> 
 " ========================================================================== "
 
 
@@ -173,9 +170,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " ========================================================================== "
-
-
-
+set background=dark
+colorscheme vim-material
+" colorscheme default
 
 
 
