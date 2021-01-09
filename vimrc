@@ -89,7 +89,9 @@ let mapleader=","
 nnoremap <leader><space> :nohlsearch<CR>
 " 80th-column if you write code
 " ========================================================================== "
-
+" shift tab pages
+map <S-Left> :tabp<CR>
+map <S-Right> :tabn<CR>
 
 " ===============================tagbar==================================== "
 autocmd VimEnter * nested :TagbarOpen  " 启动vim时自动打开tagbar
