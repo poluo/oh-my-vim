@@ -33,7 +33,7 @@ Plugin 'chiel92/vim-autoformat'
 Plugin 'klen/python-mode'
 
 " Plugin 'scrooloose/syntastic'
-" Plugin 'valloric/youcompleteme'
+Plugin 'valloric/youcompleteme'
 
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -80,7 +80,7 @@ set tags=./tags,tags
 " incase can't delete in INSERT modee
 set backspace=indent,eol,start
 " set tab as 2 space, `:retab` to work on current buffer
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source ./.vimrc
 " leader is comma
@@ -150,7 +150,7 @@ let g:ctrlp_show_hidden = 1     "find hidden file
 " ================================EasyAlign================================= "
 vnoremap <silent> <Enter> :EasyAlign<cr>
 " ========================================================================== "
-
+let g:ycm_key_list_stop_completion = ['']
 " ===============================ultisnips================================== "
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
